@@ -4,7 +4,7 @@
 
 ## 在线使用
 
-**访问地址：** https://ixoahzy.github.io/7ss/
+**访问地址：** https://ixoahzy.github.io/Luma-Words/
 
 建议使用最新版 Chrome、Edge、Safari 或 Firefox 浏览器。
 
