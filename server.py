@@ -37,6 +37,9 @@ STATIC_FILES = {
     "ai-chat.js": "text/javascript; charset=utf-8",
     "ai-voice.js": "text/javascript; charset=utf-8",
     "ai-chat.css": "text/css; charset=utf-8",
+    "ai-pet.js": "text/javascript; charset=utf-8",
+    "ai-pet.css": "text/css; charset=utf-8",
+    "assets/amber/spritesheet.webp": "image/webp",
 }
 
 

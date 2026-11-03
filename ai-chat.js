@@ -35,6 +35,7 @@
     toggle.addEventListener("click", () => setOpen(panel.hidden));
     close.addEventListener("click", () => setOpen(false));
     widget.addEventListener("keydown", event => { event.stopPropagation(); if (event.key === "Escape") setOpen(false); });
+    window.LumaPet?.mount(widget);
     return;
   }
   widget.innerHTML = `
@@ -79,6 +80,7 @@
   const style = widget.querySelector("#ai-style");
   const personality = widget.querySelector("#ai-personality");
   const settingsNote = widget.querySelector("#ai-settings-note");
+  const pet = window.LumaPet?.mount(widget);
   let history = [], active = null, sequence = 0, pendingTip = null, lastScreenKey = null;
   let studyTimer;
   const mic = widget.querySelector("#ai-mic");
@@ -110,7 +112,7 @@
     },
     onState(state) { recordingState = state; renderVoiceState(); updateContext(); },
     onSpeechState(value) { speaking = value; renderVoiceState(); },
-    onError(message) { error.textContent = message; error.hidden = false; }
+    onError(message) { error.textContent = message; error.hidden = false; renderVoiceState(); }
   });
   function renderVoiceState() {
     const labels = { requesting: "等待麦克风授权…", recording: "录音中，再次点击结束（最长 60 秒）…", transcribing: "正在本机识别语音，首次加载可能稍慢…" };
@@ -124,6 +126,7 @@
     send.disabled = recordingState !== "idle" || Boolean(active && !active.automatic);
     voiceStatus.textContent = labels[recordingState] || (speaking ? "正在朗读回复…" : voiceNotice);
     voiceStatus.hidden = !voiceStatus.textContent;
+    pet?.updateState({ busy: Boolean(active) || recordingState === "transcribing", waiting: ["requesting", "recording"].includes(recordingState), speaking, failed: !error.hidden });
   }
   function saveVoiceSettings() {
     voiceSettings = { ...voiceSettings, language: voiceLanguage.value, autoSpeak: autoSpeak.checked,
@@ -311,6 +314,7 @@
       const subject = context.prompt || context.entries[0]?.word;
       const source = `${context.title}${context.activity === "study" ? ` · ${context.entries.length} 个词` : context.activity === "quiz" ? ` · ${context.prompt}` : ""}`;
       appendMessage("assistant", data.reply, automatic ? `学习小贴士 · ${context.title}${subject ? " · " + subject : ""}` : `提问时的页面：${source}`);
+      pet?.notifyReply();
       if (voiceSettings.autoSpeak && voice.canSpeak && !panel.hidden && recordingState === "idle") voice.speak(data.reply);
     } catch (failure) {
       if (ticket !== sequence || (automatic && controller.signal.aborted)) return;
