@@ -62,7 +62,8 @@ def daemon():
         fd = os.open(DIRECTORY / 'daemon.log', os.O_CREAT | os.O_WRONLY | os.O_APPEND, 0o600)
         with os.fdopen(fd, 'wb') as log:
             process = subprocess.Popen([binary('tailscaled'), '--tun=userspace-networking', '--port=0',
-                '--socket=' + str(SOCKET), '--state=' + str(DIRECTORY / 'node.state')], stdout=log, stderr=log)
+                '--socket=' + str(SOCKET), '--statedir=' + str(DIRECTORY),
+                '--state=' + str(DIRECTORY / 'node.state')], stdout=log, stderr=log)
         try:
             for _ in range(60):
                 if process.poll() is not None: raise RuntimeError('Tailscale 节点未启动，请检查 .remote-share/funnel/daemon.log。')
