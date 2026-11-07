@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Add the 22-list IELTS vocabulary source to every relevant Luma Words learning flow while preserving its source order for list-based dictation.
+**Goal:** Add the 22-list IELTS vocabulary source to every relevant DeskTalk learning flow while preserving its source order for list-based dictation.
 
 **Architecture:** A new static data file exposes source-ordered IELTS records. `index.html` gains a third library mode and filters its existing quiz, study, dictation, library-management and mistake-book flows through a small set of source/list helpers instead of duplicating each flow.
 

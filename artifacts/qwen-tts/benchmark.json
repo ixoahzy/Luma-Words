@@ -1,0 +1,52 @@
+{
+  "hardware": {
+    "machine": "arm64",
+    "ram_gib": 24.0
+  },
+  "engine": "official qwen-tts / PyTorch MPS",
+  "dtype": "bfloat16",
+  "speaker": "Serena",
+  "samples": [
+    {
+      "name": "zh",
+      "language": "Chinese",
+      "text": "你好，我是 lion。我们一起练习英语吧，你今天过得怎么样？",
+      "file": "serena-zh.wav",
+      "sample_rate": 24000,
+      "audio_seconds": 5.2,
+      "generation_seconds": 8.581437417000416,
+      "peak_rss_gib": 0.5465850830078125,
+      "gpu_driver_gib": 2.4882049560546875,
+      "rtf": 1.6502764263462337
+    },
+    {
+      "name": "en",
+      "language": "English",
+      "text": "Hi, I'm lion. What do you like to do on weekends?",
+      "file": "serena-en.wav",
+      "sample_rate": 24000,
+      "audio_seconds": 3.76,
+      "generation_seconds": 3.9484217499993974,
+      "peak_rss_gib": 0.5577392578125,
+      "gpu_driver_gib": 2.488311767578125,
+      "rtf": 1.0501121675530314
+    },
+    {
+      "name": "mixed",
+      "language": "Auto",
+      "text": "今天我们练习点餐。I'd like a cup of coffee, please. 你想点些什么？",
+      "file": "serena-mixed.wav",
+      "sample_rate": 24000,
+      "audio_seconds": 5.84,
+      "generation_seconds": 4.912007834005635,
+      "peak_rss_gib": 0.564178466796875,
+      "gpu_driver_gib": 2.4962310791015625,
+      "rtf": 0.8410972318502801
+    }
+  ],
+  "repo": "Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice",
+  "revision": "85e237c12c027371202489a0ec509ded67b5e4b5",
+  "load_seconds": 2.192834707995644,
+  "rss_after_load_gib": 0.362030029296875,
+  "gpu_driver_after_load_gib": 2.41448974609375
+}

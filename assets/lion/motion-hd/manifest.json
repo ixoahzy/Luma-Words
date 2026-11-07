@@ -1,0 +1,104 @@
+{
+  "totalFrames": 73,
+  "groups": [
+    {
+      "name": "idle",
+      "frames": 6,
+      "columns": 2,
+      "rows": 3,
+      "width": 1024,
+      "height": 1536,
+      "sha256": "039c63b02099f7a7ceabcad69788e906189265ab5f35ca7d7003f0a994f32e9d"
+    },
+    {
+      "name": "running-right",
+      "frames": 8,
+      "columns": 2,
+      "rows": 4,
+      "width": 887,
+      "height": 1774,
+      "sha256": "9c224be66e0c1797094c9bdd0f299f5a39ea088e83c4add76c4f34ffa488b880"
+    },
+    {
+      "name": "running-left",
+      "frames": 8,
+      "columns": 2,
+      "rows": 4,
+      "width": 887,
+      "height": 1774,
+      "sha256": "7c824acb707e8eceb9105968233ea7e90eac4d6a6578d4c99a39838e41b07dcf"
+    },
+    {
+      "name": "waving",
+      "frames": 4,
+      "columns": 2,
+      "rows": 2,
+      "width": 1254,
+      "height": 1254,
+      "sha256": "80b2d6b9cc34ca350cd82259d4c912cd5e45fe7294fb8b451b8154a71c8c32b5"
+    },
+    {
+      "name": "jumping",
+      "frames": 5,
+      "columns": 2,
+      "rows": 3,
+      "width": 1024,
+      "height": 1536,
+      "sha256": "dca45ff9be572e65e39e2484cf035b64a9e042a134eda8494da2b2d918a2f172"
+    },
+    {
+      "name": "failed",
+      "frames": 8,
+      "columns": 2,
+      "rows": 4,
+      "width": 887,
+      "height": 1774,
+      "sha256": "4b1c86cd87dce7f78dcfbd915377a813d968bb1a5fc894f0c8720004f9d88772"
+    },
+    {
+      "name": "waiting",
+      "frames": 6,
+      "columns": 2,
+      "rows": 3,
+      "width": 1024,
+      "height": 1536,
+      "sha256": "98cfa096cbf5cf5473ec9b00f94c21df2baba08bc40a15396d44ddf6d9e58a62"
+    },
+    {
+      "name": "running",
+      "frames": 6,
+      "columns": 2,
+      "rows": 3,
+      "width": 1024,
+      "height": 1536,
+      "sha256": "8c6c235d6c8fee8e293e61ab8d617114595236cacaebac8954ca975799bd0353"
+    },
+    {
+      "name": "review",
+      "frames": 6,
+      "columns": 2,
+      "rows": 3,
+      "width": 1024,
+      "height": 1536,
+      "sha256": "f6919eac1ab099c41885ca640e20c9656f3aca9ee50cda249c01dfa9e519dda6"
+    },
+    {
+      "name": "look-0",
+      "frames": 8,
+      "columns": 2,
+      "rows": 4,
+      "width": 887,
+      "height": 1774,
+      "sha256": "2e28ff71b22ed81756fec9ff5f9f14a596cccdf72aaa47ae2f48b83b737d858f"
+    },
+    {
+      "name": "look-1",
+      "frames": 8,
+      "columns": 2,
+      "rows": 4,
+      "width": 887,
+      "height": 1774,
+      "sha256": "eced6ace4ea6f4e39674decf8da234b224412bc58152d00cf1db111ec4f08716"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+/* DeskTalk: warm ivory, apricot and caramel, matching lion's cream/gold palette. */
+:root{--b:#9b552a;--bd:#80411f;--bs:#fff0dc;--ink:#3d2b22;--muted:#886e5d;--line:#eadbca;--bg:#fff7ed;--shadow:0 24px 70px rgba(112,70,35,.1)}
+body,.study-page{background:radial-gradient(ellipse at 15% 0,rgba(244,192,135,.25),transparent 46%),radial-gradient(ellipse at 90% 80%,rgba(240,199,179,.18),transparent 50%),var(--bg)}
+.top,.study-top{background:rgba(255,250,243,.9);border-color:var(--line)}
+.mark{background:linear-gradient(145deg,#c88c52,#9b552a);box-shadow:0 5px 15px #9b552a22}
+.card,.modal{background:rgba(255,253,249,.97);border-color:var(--line);box-shadow:var(--shadow)}
+footer{background:rgba(255,250,243,.8);border-color:var(--line)}
+.study-toolbar,.study-aside,.study-group,.study-table,.preview-table{background:#fffdf9;border-color:var(--line)}
+.study-group-head,.study-row:nth-child(even),.preview-row:first-child{background:#fff8ef}
+.study-category.active,.study-category:hover,.badge,.status,.bulk-bar{background:var(--bs);border-color:#ead3ba}
+.study-entry{border-color:#ead3ba}
+.segments{background:#f7ecdf}
+.segments button.active,.level-switch button.active{color:var(--b);border-color:#e2bd94;background:#fff8ed}
+:focus-visible{outline-color:#9b552a55}
+#desktalk-ai .ai-panel,#desktalk-ai .ai-pet-menu{background:#fffdf9;border-color:var(--line);box-shadow:0 18px 65px #70462322}
+#desktalk-ai .ai-header{background:#fff0dc}
+#desktalk-ai .ai-assistant{background:#f8efe4}
+#desktalk-ai .ai-context,#desktalk-ai .speaking-setup,#desktalk-ai .speaking-controls,#desktalk-ai .ai-form{border-color:var(--line)}
+#desktalk-ai .speaking-heading button,#desktalk-ai .speaking-setup button,#desktalk-ai .speaking-controls button{border-color:#ead3ba;color:var(--b);background:var(--bs)}
+#desktalk-ai .speaking-setup select{background:#fffdf9;border-color:#ead3ba}
+#desktalk-ai #speaking-start{background:var(--b);color:#fff}
+#desktalk-ai .ai-speaking-entries{background:#fff4e5;border-color:var(--line)}
+#desktalk-ai #ai-speaking-entry{color:var(--b);background:#fff4e5}
+#desktalk-ai .ai-pet-label{background:#fffaf3f5;border-color:var(--line);color:var(--b)}
+@media(min-width:420px) and (max-width:700px){.brand strong{display:block;font-size:15px;letter-spacing:-.03em}.brand{gap:8px}.top{gap:10px}}

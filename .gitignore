@@ -1,0 +1,23 @@
+.env
+__pycache__/
+*.pyc
+.venv-voice/
+.voice-models/
+.voice-cache/
+.tools/
+.remote-share/
+
+.venv-qwen-tts/
+.tts-models/
+.tts-cache/
+.venv-share/
+.DS_Store
+# Runtime screenshots can contain live invitations; keep only reproducible samples.
+artifacts/*
+!artifacts/qwen-tts/
+artifacts/qwen-tts/*
+!artifacts/qwen-tts/model-source.json
+!artifacts/qwen-tts/benchmark.json
+!artifacts/qwen-tts/serena-zh.wav
+!artifacts/qwen-tts/serena-en.wav
+!artifacts/qwen-tts/serena-mixed.wav

@@ -1,0 +1,65 @@
+#desktalk-ai.has-lion-pet{width:var(--pet-width,112px);height:calc(var(--pet-sprite-height,121px) + 26px);pointer-events:none}
+#desktalk-ai.has-lion-pet .ai-panel{position:fixed;margin:0;pointer-events:auto;z-index:3}
+#desktalk-ai .ai-pet-toggle{display:flex;flex-direction:column;align-items:center;justify-content:end;width:100%;height:100%;padding:0;border:0;border-radius:16px;background:transparent;box-shadow:none;touch-action:none;user-select:none;-webkit-user-select:none;pointer-events:auto;cursor:grab}
+#desktalk-ai .ai-pet-toggle:hover{background:transparent}
+#desktalk-ai .ai-pet-toggle:active{cursor:grabbing}
+#desktalk-ai .ai-pet-sprite{display:block;width:100%;height:var(--pet-sprite-height);background-image:url('assets/lion/spritesheet.webp');background-size:800% 1100%;background-repeat:no-repeat;filter:drop-shadow(0 5px 5px #26334d26);pointer-events:none}
+#desktalk-ai .ai-pet-label{display:block;max-width:160px;white-space:nowrap;padding:4px 9px;border:1px solid #eadbca;border-radius:999px;background:#fffffff0;color:var(--b,#9b552a);box-shadow:0 3px 12px #1e2f4e12;font-size:10px;font-weight:650;line-height:16px}
+#desktalk-ai .ai-pet-tools{position:absolute;right:-3px;top:0;pointer-events:auto;z-index:4}
+#desktalk-ai .ai-pet-settings{width:25px;height:25px;border:1px solid #eadbca;border-radius:50%;background:#fffffff0;color:var(--muted,#738096);font-size:15px}
+#desktalk-ai .ai-pet-menu{position:fixed;width:194px;max-height:calc(100dvh - 32px);overflow:auto;padding:12px;border:1px solid var(--line,#e5eaf1);border-radius:14px;background:#fff;box-shadow:0 8px 28px #1e2f4e26;color:var(--ink,#172033);font-size:12px;box-sizing:border-box}
+#desktalk-ai .ai-pet-menu[hidden]{display:none}
+#desktalk-ai .ai-pet-menu strong{display:block;margin-bottom:9px}
+#desktalk-ai .ai-pet-menu label{display:flex;align-items:center;justify-content:space-between;gap:7px;margin:9px 0}
+#desktalk-ai .ai-pet-menu select,#desktalk-ai .ai-pet-menu button{border:1px solid #ead3ba;border-radius:7px;padding:6px;background:var(--bs,#fff0dc);color:var(--b,#9b552a);font:inherit}
+#desktalk-ai .ai-pet-menu input{accent-color:var(--b,#9b552a);margin:0}
+#desktalk-ai .ai-pet-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:9px}
+#desktalk-ai .ai-pet-actions button{flex:1}
+#desktalk-ai .ai-pet-minimize,#desktalk-ai .ai-pet-reset{display:block;width:100%;margin:7px 0}
+#desktalk-ai .ai-pet-menu small{display:block;color:var(--muted,#738096);font-size:10px;line-height:1.7}
+#desktalk-ai.ai-pet-is-minimal{height:44px}
+#desktalk-ai.ai-pet-is-minimal .ai-pet-sprite{display:none}
+#desktalk-ai.ai-pet-is-minimal .ai-pet-toggle{justify-content:center}
+#desktalk-ai.ai-pet-is-minimal .ai-pet-label{background:var(--b,#9b552a);color:#fff;border-color:transparent;padding:9px 12px;font-size:11px}
+#desktalk-ai.ai-pet-is-minimal .ai-pet-tools{top:-12px;right:-9px}
+@media(prefers-reduced-motion:reduce){#desktalk-ai .ai-pet-sprite{filter:none}}
+
+/* The HD atlas retains real alpha edges. Do not sharpen with contrast filters
+   or nearest-neighbour scaling: both produce halos on this illustration. */
+#desktalk-ai .ai-pet-stage{position:relative;display:block;flex:none;width:100%;height:var(--pet-sprite-height);transform-origin:50% 90%;transform:rotate(var(--pet-look,0deg)) translateY(var(--pet-lift,0px));transition:transform .28s ease-out}
+#desktalk-ai .ai-pet-stage .ai-pet-sprite{width:100%;height:100%;background-size:800% 1100%;image-rendering:auto;filter:drop-shadow(0 5px 7px #26334d18);transform-origin:50% 92%}
+#desktalk-ai .ai-pet-canvas{display:none;position:absolute;inset:0;width:100%;height:100%;pointer-events:none;image-rendering:auto}
+#desktalk-ai.ai-pet-clear .ai-pet-canvas{display:block}
+#desktalk-ai.ai-pet-clear .ai-pet-sprite{visibility:hidden}
+#desktalk-ai.ai-pet-hd-ready .ai-pet-actions button::before{content:"";display:block;margin:0 auto 3px;width:44px;height:44px;background-image:url('assets/lion/expressions-hd.png');background-size:200% 400%;background-position:var(--expression-x) var(--expression-y);background-repeat:no-repeat}
+#desktalk-ai .ai-pet-label{max-width:240px;font-size:11px;min-height:24px}
+#desktalk-ai .ai-pet-fx{position:absolute;top:14%;right:9%;font-size:27px;color:#e8769e;text-shadow:0 1px 3px #fff;pointer-events:none;animation:pet-spark 1.2s ease-in-out infinite}
+#desktalk-ai .ai-pet-chat{width:100%}
+#desktalk-ai .ai-pet-menu{width:218px;padding:14px}
+#desktalk-ai.ai-pet-is-minimal .ai-pet-stage{display:none}
+#desktalk-ai[data-pet-motion="idle"] .ai-pet-sprite{animation:pet-breathe 3.8s ease-in-out infinite}
+#desktalk-ai[data-pet-motion="wave"] .ai-pet-sprite{animation:pet-wave .6s ease-in-out 3}
+#desktalk-ai[data-pet-motion="pat"] .ai-pet-sprite{animation:pet-pat .8s ease-in-out 3}
+#desktalk-ai[data-pet-motion="poke"] .ai-pet-sprite{animation:pet-poke .45s ease-out 1}
+#desktalk-ai[data-pet-motion="celebrate"] .ai-pet-sprite,#desktalk-ai[data-pet-motion="jumping"] .ai-pet-sprite{animation:pet-jump .8s cubic-bezier(.2,.6,.3,1) 2}
+#desktalk-ai[data-pet-motion="comfort"] .ai-pet-sprite{animation:pet-pat 1.5s ease-in-out 2}
+#desktalk-ai[data-pet-motion="thinking"] .ai-pet-sprite{animation:pet-breathe 2.4s ease-in-out infinite}
+#desktalk-ai[data-pet-motion="talking"] .ai-pet-sprite{animation:pet-talk .75s ease-in-out infinite}
+#desktalk-ai[data-pet-motion="running-left"] .ai-pet-sprite{animation:pet-walk .3s ease-in-out infinite}
+#desktalk-ai[data-pet-motion="running-right"] .ai-pet-sprite{animation:pet-walk .3s ease-in-out reverse infinite}
+/* Actual limbs/eyes are animated by atlas frames. Apply only a quiet body
+   breathing motion to their shared container, avoiding double jumps and
+   inconsistent transforms between the two frame-blending layers. */
+#desktalk-ai .ai-pet-stage .ai-pet-sprite{animation:none}
+#desktalk-ai[data-pet-motion="idle"] .ai-pet-stage{animation:pet-breathe 3.8s ease-in-out infinite}
+#desktalk-ai[data-pet-motion="pat"] .ai-pet-stage{animation:pet-pat .8s ease-in-out 3}
+#desktalk-ai[data-pet-motion="poke"] .ai-pet-stage{animation:pet-poke .45s ease-out 1}
+@keyframes pet-breathe{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+@keyframes pet-wave{0%,100%{transform:rotate(0)}30%{transform:rotate(-3deg)}70%{transform:rotate(3deg)}}
+@keyframes pet-pat{0%,100%{transform:rotate(0) translateY(0)}50%{transform:rotate(-2deg) translateY(3px)}}
+@keyframes pet-poke{0%,100%{transform:translateX(0)}25%{transform:translateX(5px) rotate(3deg)}60%{transform:translateX(-2px) rotate(-1deg)}}
+@keyframes pet-jump{0%,100%{transform:translateY(0) scale(1)}18%{transform:translateY(3px) scale(1.02,.97)}48%{transform:translateY(-17px) scale(.99,1.02)}80%{transform:translateY(0) scale(1.015,.98)}}
+@keyframes pet-talk{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-2px) rotate(1deg)}}
+@keyframes pet-walk{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-3px) rotate(2deg)}}
+@keyframes pet-spark{0%,100%{transform:translateY(0) scale(.95);opacity:.7}50%{transform:translateY(-5px) scale(1.08);opacity:1}}
+@media(prefers-reduced-motion:reduce){#desktalk-ai .ai-pet-stage,#desktalk-ai .ai-pet-sprite,#desktalk-ai .ai-pet-fx{animation:none!important;transition:none!important;transform:none!important}}
