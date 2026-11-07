@@ -101,9 +101,9 @@ def main():
         gateway = launch([sys.executable, str(ROOT / 'remote_gateway.py')], 'gateway.log')
         wait_port(8001, gateway)
         if mode == 'tailscale':
-            from funnel_runtime import cli, daemon, fixed_origin, status, TARGET
+            from funnel_runtime import cli, daemon, wait_origin, TARGET
             tunnel_node = tunnel_resources.enter_context(daemon())
-            expected_origin = fixed_origin(status())
+            expected_origin = wait_origin(tunnel_node)
             tunnel_command = cli('funnel', '--https=443', TARGET)
             pattern = re.escape(expected_origin) + r'(?=[/\s]|$)'
         else:
@@ -113,7 +113,7 @@ def main():
             pattern = r'https://[a-z0-9]+(?:-[a-z0-9]+)+\.trycloudflare\.com'
         tunnel = launch(tunnel_command, 'tunnel.log')
         origin = None
-        for _ in range(240):
+        for _ in range(160 if mode == 'tailscale' else 240):
             if tunnel.poll() is not None:
                 raise RuntimeError('HTTPS 通道启动失败，请查看 .remote-share/tunnel.log。')
             log = (STATE / 'tunnel.log').read_text(errors='replace')

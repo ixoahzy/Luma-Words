@@ -6,14 +6,14 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from funnel_runtime import cli, daemon, fixed_origin, status, TARGET
+from funnel_runtime import cli, daemon, wait_origin, TARGET
 from host_runtime import STATE
 
 
 def main():
-    with daemon():
+    with daemon() as process:
         subprocess.run(cli('up', '--hostname=desktalk', '--accept-dns=false', '--accept-routes=false'), check=True)
-        origin = fixed_origin(status())
+        origin = wait_origin(process)
         # The CLI prompts the owner to enable HTTPS/Funnel if the tailnet needs it.
         command = cli('funnel', '--bg', '--https=443', TARGET)
         try: subprocess.run(command, check=True)

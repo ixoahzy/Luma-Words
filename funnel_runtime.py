@@ -39,6 +39,19 @@ def status():
     return json.loads(result.stdout)
 
 
+def wait_origin(process, timeout=20):
+    deadline = time.monotonic() + timeout
+    while time.monotonic() < deadline:
+        if process.poll() is not None: raise RuntimeError('Tailscale 节点已退出。')
+        try: value = status()
+        except (OSError, ValueError, subprocess.TimeoutExpired): value = {}
+        if value.get('BackendState') in ('NeedsLogin', 'NeedsMachineAuth'):
+            raise RuntimeError('Tailscale 需要重新授权，请运行“设置固定网址.command”。')
+        try: return fixed_origin(value)
+        except RuntimeError: time.sleep(.3)
+    raise RuntimeError('Tailscale 未能恢复连接，请检查网络后重新开启共享。')
+
+
 @contextmanager
 def daemon():
     DIRECTORY.mkdir(mode=0o700, parents=True, exist_ok=True)
